@@ -1,6 +1,6 @@
-module github.com/haradashinya/memo
+module github.com/haradashinya/memo-life-for-you
 
-go 1.23
+go 1.22
 
 require (
 	github.com/BurntSushi/toml v1.4.0
