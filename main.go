@@ -28,7 +28,6 @@ import (
 	"github.com/mattn/go-tty"
 	"github.com/pkg/browser"
 	"github.com/shurcooL/github_flavored_markdown"
-	"github.com/shurcooL/github_flavored_markdown/gfmstyle"
 	"github.com/urfave/cli/v2"
 )
 
@@ -67,7 +66,6 @@ const templateBodyContent = `
 <head>
   <meta charset="UTF-8">
   <title>{{.Name}}</title>
-  <link href="/assets/gfm/gfm.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<main class="markdown-body">
@@ -846,7 +844,7 @@ func cmdServe(c *cli.Context) error {
 			})
 		}
 	})
-	http.Handle("/assets/gfm/", http.StripPrefix("/assets/gfm", http.FileServer(gfmstyle.Assets)))
+	// http.Handle("/assets/gfm/", http.StripPrefix("/assets/gfm", http.FileServer(gfmstyle.Assets)))
 	http.Handle("/assets/", http.StripPrefix("/assets", http.FileServer(http.Dir(cfg.AssetsDir))))
 
 	addr := c.String("addr")
